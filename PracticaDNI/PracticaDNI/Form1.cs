@@ -12,6 +12,7 @@ namespace PracticaDNI
 {
     public partial class Form1 : Form
     {
+        //Diego Andrés González Ruiz
         public Form1()
         {
             InitializeComponent();
@@ -19,17 +20,20 @@ namespace PracticaDNI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!DNITextBox.Text.Equals("")) { 
+            if (DNITextBox.Text.Length != 8) { 
             int dni = Convert.ToInt32(DNITextBox.Text);
                 char letter = functionDNI(dni);
                 LaLetraLabel.Text = letter.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Wrong input");
             }
         }
 
         private char functionDNI(int dni)
         {
-            char letter = 'a';
-            return letter;
+            return "TRWAGMYFPDXBNJZSQVHLCKE"[dni%23];
         }
     }
 }
